@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juego de Multiplicador</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="panel">
+    <h1>💰 Dinero: <span id="money">0</span></h1>
+    <h2>📈 Multiplicador: <span id="multiplier">1x</span></h2>
+
+    <button onclick="earnMoney()">Ganar Dinero</button>
+    <button onclick="upgrade()">Mejorar (Costo: <span id="upgradeCost">50</span>)</button>
+    <br><br>
+    <button onclick="resetGame()" style="background-color: #f55; color: white;">Reiniciar Progreso</button>
+    <button onclick="toggleTheme()">🌙 Cambiar Tema</button>
+    <button onclick="toggleAchievements()">📜 Ver Logros</button>
+    <button onclick="toggleCredits()">👤 Créditos</button>
+    <button onclick="toggleMusic()" id="musicButton">🔈 Activar Música</button>
+    <br><br>
+    <button onclick="exportProgress()">📤 Exportar Progreso</button>
+    <button onclick="document.getElementById('importFile').click()">📥 Importar Progreso</button>
+    <input type="file" id="importFile" style="display: none;" accept=".json" onchange="importProgress(event)">
+    
+    <h3>🏅 Récord Personal: <span id="record">0</span></h3>
+    <!--<button onclick="toggleStats()">📊 Ver Estadísticas</button>-->
+  </div>
+
+  <div id="achievementsPanel" style="display: none;">
+    <h2>🏆 Logros</h2>
+    <ul id="achievementsList" style="list-style: none; padding: 0;"></ul>
+  </div>
+
+  <!--<div class="panel" id="statsPanel" style="display:none;">
+  <h2>📈 Estadísticas</h2>
+  <canvas id="progressChart" width="600" height="250"></canvas>
+  <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+    <span>🖱️ Clicks Totales: <span id="totalClicks">0</span></span>
+    <span>⚡ Clicks por Segundo (CPS): <span id="cps">0.0</span></span>
+  </div>
+</div>-->
+
+  <div id="creditsPanel" style="display: none;">
+    <h2>👤 Créditos</h2>
+    <p>Creado por <strong>Nikoti</strong>.</p>
+    <p>Con ayuda de ChatGPT. Música por su respectivo autor.</p>
+  </div>
+
+  <audio id="coinSound" src="coin.mp3"></audio>
+  <audio id="achievementSound" src="achievement.mp3"></audio>
+  <audio id="upgradeSound" src="upgrade.mp3"></audio>
+  <audio id="bgMusic" src="music.mp3" loop></audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
